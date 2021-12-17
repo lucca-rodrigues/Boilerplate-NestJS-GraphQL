@@ -3,49 +3,67 @@
 # ------------------------------------------------------
 
 type User {
-  id: Int!
-}
+  """id of the user"""
+  userId: String!
 
-type Post {
-  id: Float!
-  author_id: Float!
-  title: String!
-  description: String!
+  """Example field (placeholder)"""
+  exampleField: Int!
+
+  """first name of the user"""
+  firstName: String!
+
+  """last name of the user"""
+  lastName: String!
+
+  """email of the user"""
+  email: String!
+
+  """role of the user"""
+  role: String!
 }
 
 type Query {
-  user(id: Int!): User!
-  posts: [Post!]!
-  post(id: Int!): Post!
+  users: [User!]!
+  user(userId: String!): User!
 }
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User!
-  removeUser(id: Int!): User!
-  createPost(createPostInput: CreatePostInput!): Post!
-  updatePost(updatePostInput: UpdatePostInput!): Post!
-  removePost(id: Int!): Post!
+  removeUser(userId: String!): User!
 }
 
 input CreateUserInput {
   """Example field (placeholder)"""
   exampleField: Int!
+
+  """first name of the user"""
+  firstName: String!
+
+  """last name of the user"""
+  lastName: String!
+
+  """email of the user"""
+  email: String!
+
+  """role of the user"""
+  role: String!
 }
 
 input UpdateUserInput {
   """Example field (placeholder)"""
   exampleField: Int
-  id: Int!
-}
 
-input CreatePostInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
-}
+  """first name of the user"""
+  firstName: String
 
-input UpdatePostInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  """last name of the user"""
+  lastName: String
+
+  """email of the user"""
+  email: String
+
+  """role of the user"""
+  role: String
+  userId: String!
 }

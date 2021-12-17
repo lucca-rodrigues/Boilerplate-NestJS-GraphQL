@@ -52,7 +52,6 @@ export class UsersService {
       lastName: '',
       email: '',
       role: '',
-      exampleField: 0,
     };
   }
 }

@@ -6,9 +6,6 @@ type User {
   """id of the user"""
   userId: String!
 
-  """Example field (placeholder)"""
-  exampleField: Int!
-
   """first name of the user"""
   firstName: String!
 
@@ -34,9 +31,6 @@ type Mutation {
 }
 
 input CreateUserInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
-
   """first name of the user"""
   firstName: String!
 
@@ -51,9 +45,6 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-
   """first name of the user"""
   firstName: String
 

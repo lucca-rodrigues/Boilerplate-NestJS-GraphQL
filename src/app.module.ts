@@ -23,7 +23,7 @@ dotenv.config();
       password: 'boilerplate',
       database: 'boilerplate',
       autoLoadEntities: true,
-      // synchronize: true,
+      synchronize: true,
       // entities: [User],
       //logging: true,
     }),

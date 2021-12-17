@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { User } from './entities/user.entity';
@@ -13,6 +17,16 @@ export class UsersService {
   ) {}
 
   async create(createUserInput: CreateUserInput): Promise<User> {
+    const { email } = createUserInput;
+    const userAlreadExists = await this.userRepository.findOne({
+      where: { email },
+    });
+
+    if (userAlreadExists) {
+      throw new UnauthorizedException(
+        `User with email ${email} already exists`,
+      );
+    }
     const user = this.userRepository.create(createUserInput);
     return await this.userRepository.save(user);
   }
